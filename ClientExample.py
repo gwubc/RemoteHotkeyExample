@@ -6,13 +6,11 @@ import time
 from RemoteHotKey.ClientManager import ClientManager
 
 from MainActionManager import MainActionManager
-from AHKActionPerformer import AHKActionPerformer
+from LogToConsoleActionPerformer import LogToConsoleActionPerformer
 from CustomTemplate import createTemplate
 
 
 logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler("log.log")])
-
-ahk = AHKActionPerformer()
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 # subprocess.Popen(f"{ROOT_DIR}/frp/frpc.exe -c ./frp/frpc.ini")
@@ -20,7 +18,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 client = ClientManager()
 client.setUITemplate(createTemplate())
 
-client.addActionManager(MainActionManager(ahk))
+client.addActionManager(MainActionManager(LogToConsoleActionPerformer()))
 
 client.start()
 while 1:

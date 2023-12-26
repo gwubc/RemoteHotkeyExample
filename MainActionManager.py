@@ -1,6 +1,5 @@
 import time
 
-import pynput
 from RemoteHotKey.Utility.KeyboardMouseActionPerformer import KeyboardMouseActionPerformer
 from RemoteHotKey.ActionManager import ActionManager
 

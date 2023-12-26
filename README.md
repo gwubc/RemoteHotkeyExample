@@ -4,7 +4,8 @@ This example demonstrates the use of RemoteHotkey, which can be found here: http
 
 
 ### Getting Started
-Start the server by running `python ClientExample.py`.\
+Install requirement by `pip install remotehotkey`.\
+Then start the server by running `python ClientExample.py`.\
 Access the server interface at http://localhost:5000/.
 
 
