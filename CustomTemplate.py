@@ -6,6 +6,7 @@ from RemoteHotKey.WebUI.Button import Button
 from RemoteHotKey.OneTimeEvent import OneTimeEvent
 from RemoteHotKey.State import State
 from RemoteHotKey.WebUI.UITemplate import UIPage, UITemplate
+from RemoteHotKey.Utility.KeyboardMouseActionPerformer import KeyboardActions, MouseActions
 
 
 class EventButton(Button):
@@ -112,7 +113,7 @@ def createTemplate() -> UITemplate:
     page1.addUIElement(EventButton("B4", "ButtonClicked", {"print": "B4 clicked"}))
 
     page2 = UIPage((3, 3))
-    page2.addUIElement(PageChangeButton("Previous Page", -1))
+    page2.addUIElement(PageChangeButton("Next Page", 1))
     page2.addUIElement(NumberToggle("1", {"value": 1}))
     page2.addUIElement(NumberToggle("3", {"value": 3}))
     page2.addUIElement(NumberToggle("7",  {"value": 7}))
@@ -120,8 +121,15 @@ def createTemplate() -> UITemplate:
     page2.addUIElement(NumberToggleTotalValueDisplay())
     page2.addUIElement(PrintTotalToTerminalRepeatedlyToggle())
 
+    page3 = UIPage((3, 3))
+    page3.addUIElement(PageChangeButton("Go to page 1", -2))
+    page3.addUIElement(EventButton("a", "Keyboard", {"action": KeyboardActions.TapKeyboard, "Key": "a"}))
+    page3.addUIElement(EventButton("b", "Keyboard", {"action": KeyboardActions.TapKeyboard, "Key": "b"}))
+    page3.addUIElement(EventButton("Mouse LeftClick", "Mouse", {"action": MouseActions.LeftClick}))
+
     template.addPage(page1)
     template.addPage(page2)
+    template.addPage(page3)
     return template
 
 

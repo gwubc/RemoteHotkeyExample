@@ -5,11 +5,9 @@ from RemoteHotKey.ActionManager import ActionManager
 
 
 class MainActionManager(ActionManager):
-    _actionPerformer = None
 
-    def __init__(self, actionPerformer: KeyboardMouseActionPerformer):
+    def __init__(self):
         super().__init__()
-        self._actionPerformer = actionPerformer
 
     def _shouldStartOneTimeAction(self) -> bool:
         for event in self._currentState.getEventLog():

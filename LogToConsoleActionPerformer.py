@@ -7,7 +7,6 @@ class LogToConsoleActionPerformer(KeyboardMouseActionPerformer):
     def __init__(self):
         super().__init__()
 
-
     def leftClick(self):
         print(inspect.currentframe().f_code.co_name)
 
@@ -15,7 +14,7 @@ class LogToConsoleActionPerformer(KeyboardMouseActionPerformer):
         print(inspect.currentframe().f_code.co_name)
 
     def tapKeyboard(self, key):
-        print(inspect.currentframe().f_code.co_name)
+        print(inspect.currentframe().f_code.co_name, key)
 
     def keyDown(self, key, dur=None):
         super().keyDown(key, dur)

@@ -6,9 +6,10 @@ import time
 from RemoteHotKey.ClientManager import ClientManager
 
 from MainActionManager import MainActionManager
+from KeyboardAndMouseActionManager import KeyboardAndMouseActionManager
 from LogToConsoleActionPerformer import LogToConsoleActionPerformer
 from CustomTemplate import createTemplate
-
+from RemoteHotKey.Utility.ActionPerformer_Pynput import ActionPerformer_Pynput
 
 logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler("log.log")])
 
@@ -18,7 +19,8 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 client = ClientManager()
 client.setUITemplate(createTemplate())
 
-client.addActionManager(MainActionManager(LogToConsoleActionPerformer()))
+client.addActionManager(MainActionManager())
+client.addActionManager(KeyboardAndMouseActionManager(LogToConsoleActionPerformer()))
 
 client.start()
 while 1:
