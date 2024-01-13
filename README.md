@@ -10,6 +10,10 @@ Access the server interface at http://localhost:5000/.
 
 
 ### Interface Overview
+
+This project focuses not on the appearance of the UI, but on its flexibility to adapt and rearrange elements to meet specific needs.
+
+
 ##### Initial Page: 
 
 The first page appears as shown in the image below:
